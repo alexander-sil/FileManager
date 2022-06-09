@@ -1,0 +1,7 @@
+C:\Users\User\source\repos\Lesson9\FileManager.Utils\bin\Release\FileManager.Utils.dll.config
+C:\Users\User\source\repos\Lesson9\FileManager.Utils\bin\Release\FileManager.Utils.dll
+C:\Users\User\source\repos\Lesson9\FileManager.Utils\bin\Release\FileManager.Utils.pdb
+C:\Users\User\source\repos\Lesson9\FileManager.Utils\obj\Release\FileManager.Utils.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\Lesson9\FileManager.Utils\obj\Release\FileManager.Utils.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\Lesson9\FileManager.Utils\obj\Release\FileManager.Utils.dll
+C:\Users\User\source\repos\Lesson9\FileManager.Utils\obj\Release\FileManager.Utils.pdb
