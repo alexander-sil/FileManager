@@ -1,7 +1,0 @@
-C:\sources\gb\charpintro\Lesson9\FileManager.Utils\bin\Debug\FileManager.Utils.dll.config
-C:\sources\gb\charpintro\Lesson9\FileManager.Utils\bin\Debug\FileManager.Utils.dll
-C:\sources\gb\charpintro\Lesson9\FileManager.Utils\bin\Debug\FileManager.Utils.pdb
-C:\sources\gb\charpintro\Lesson9\FileManager.Utils\obj\Debug\FileManager.Utils.csproj.AssemblyReference.cache
-C:\sources\gb\charpintro\Lesson9\FileManager.Utils\obj\Debug\FileManager.Utils.csproj.CoreCompileInputs.cache
-C:\sources\gb\charpintro\Lesson9\FileManager.Utils\obj\Debug\FileManager.Utils.dll
-C:\sources\gb\charpintro\Lesson9\FileManager.Utils\obj\Debug\FileManager.Utils.pdb
