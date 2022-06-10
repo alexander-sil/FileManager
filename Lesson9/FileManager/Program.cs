@@ -236,15 +236,15 @@ namespace FileManager
                         break;
                     case "mv":
                     if (commandParams.Length > 2) {
-                        if (File.Exists(commandParams[1]))
+                        if (File.Exists(currentDir + @"\" + commandParams[1]))
                         {
                             if (Directory.Exists(commandParams[2]))
                             {
 
 
                                     File.Create(commandParams[2] + @"\" + commandParams[1]).Dispose();
-                                    File.Copy(commandParams[1], (commandParams[2] + @"\" + commandParams[1]), true);
-                                    File.Delete(commandParams[1]);
+                                    File.Copy(currentDir + @"\" + commandParams[1], (commandParams[2] + @"\" + commandParams[1]), true);
+                                    File.Delete(currentDir + @"\" + commandParams[1]);
 
                             }
                             
@@ -252,8 +252,8 @@ namespace FileManager
                             {
                                 Directory.CreateDirectory(commandParams[2]);
                                 File.Create(commandParams[2] + @"\" + commandParams[1]).Dispose();
-                                File.Copy(commandParams[1], (commandParams[2] + @"\" + commandParams[1]), true);
-                                File.Delete(commandParams[1]);
+                                File.Copy(currentDir + @"\" + commandParams[1], (commandParams[2] + @"\" + commandParams[1]), true);
+                                File.Delete(currentDir + @"\" + commandParams[1]);
                             }
                         }
                         else if (Directory.Exists(currentDir + @"\" + commandParams[1]))
