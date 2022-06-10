@@ -124,7 +124,7 @@ namespace FileManager
             Console.SetCursorPosition(2, 22);
             Console.WriteLine(file.Extension);
             Console.SetCursorPosition(2, 23);
-            Console.WriteLine(file.Length);
+            Console.WriteLine(file.Length + " bytes on disk");
         
         }
         // Информация о папке (перегрузка)
