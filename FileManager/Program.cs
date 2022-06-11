@@ -167,7 +167,7 @@ namespace FileManager
                             } else if (commandParams[1] == "-s")
                             {
                                 DrawTree(new DirectoryInfo(currentDir), 1, true);
-                            } else if (commandParams.Length > 3 && commandParams[1] == "-p" && commandParams[1] == "-s" && int.TryParse(commandParams[3], out int s))
+                            } else if (commandParams.Length > 3 && commandParams[1] == "-s" && commandParams[2] == "-p" && int.TryParse(commandParams[3], out int s))
                             {
                                 DrawTree(new DirectoryInfo(currentDir), s, true);
                             }
