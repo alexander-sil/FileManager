@@ -1,4 +1,3 @@
-﻿
 using FileManager.Utils;
 using System;
 using System.Collections.Generic;
@@ -6,6 +5,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security;
+using System.Security.Principal;
+using System.Security.AccessControl;
 
 namespace FileManager
 {
@@ -18,8 +20,8 @@ namespace FileManager
 
         static void Main(string[] args)
         {
-            try {
-            currentDir = Properties.Settings.Default.LastPath;
+			try {
+			currentDir = Properties.Settings.Default.LastPath;
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.Title = "FileManager";
 
@@ -31,8 +33,7 @@ namespace FileManager
             UpdateConsole();
 
             Console.ReadLine();
-
-            }
+			}
             catch (Exception e)
             {
                 // Сериализатор ошибок
@@ -47,6 +48,7 @@ namespace FileManager
                 File.AppendAllText(@"random-name-exception.txt", (date + " " + e.Message + "\n"));
 
             }
+
 
         }
 
@@ -508,9 +510,11 @@ namespace FileManager
             Console.WriteLine(footer);
 
         }
+
         // Генерация дерева
         static void GetTree(StringBuilder tree, DirectoryInfo dir, string indent, bool lastDirectory, bool useSettingsFile)
         {
+			try {
             tree.Append(indent);
             if (lastDirectory)
             {
@@ -533,14 +537,20 @@ namespace FileManager
             {
                 for (int i = 0; i < subFiles.Length; i++)
                 {
+					
                     if (i == subFiles.Length - 1)
                     {
-                        tree.Append($"{indent}└─{subFiles[i].Name}\n");
+						
+							tree.Append($"{indent}└─{subFiles[i].Name}\n");
+						
                     }
                     else
                     {
-                        tree.Append($"{indent}├─{subFiles[i].Name}\n");
+						
+							tree.Append($"{indent}├─{subFiles[i].Name}\n");
+						
                     }
+					
                 }
             }
             else
@@ -550,24 +560,41 @@ namespace FileManager
       
                     do
                     {
-                        if (i == subFiles.Length - 1)
-                        {
-                        if (subFiles[i] != null)
-                            tree.Append($"{indent}└─{subFiles[i].Name}\n");
-                        }
-                        else
-                        {
-                        if (subFiles[i] != null)
-                            tree.Append($"{indent}├─{subFiles[i].Name}\n");
-                        }
+					
+                    if (i == subFiles.Length - 1)
+                    {
+						if (subFiles[i] != null)
+							tree.Append($"{indent}└─{subFiles[i].Name}\n");
+						
+                    }
+                    else
+                    {
+						if (subFiles[i] != null)
+							tree.Append($"{indent}├─{subFiles[i].Name}\n");
+						
+                    }
+					
                     i++;
                     } while (subFiles != null && i < subFiles.Length);
                 
             }
 
             DirectoryInfo[] subDirects = dir.GetDirectories();
-            for (int i = 0; i < subDirects.Length; i++)
-                GetTree(tree, subDirects[i], indent, i == subDirects.Length - 1, useSettingsFile);
+			
+            for (int i = 0; i < subDirects.Length; i++) {
+				
+			try {
+				GetTree(tree, subDirects[i], indent, i == subDirects.Length - 1, useSettingsFile);
+				
+			} catch (UnauthorizedAccessException) {
+				GetTree(tree, subDirects[i + 1], indent, i == subDirects.Length - 1, useSettingsFile);
+			} catch (Exception) {
+				Console.Write("XX");
+			}
+			}
+			} catch {
+				;
+			}
         }
     }
 }
