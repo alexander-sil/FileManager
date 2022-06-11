@@ -587,7 +587,7 @@ namespace FileManager
 				GetTree(tree, subDirects[i], indent, i == subDirects.Length - 1, useSettingsFile);
 				
 			} catch (UnauthorizedAccessException) {
-				GetTree(tree, subDirects[i + 1], indent, i == subDirects.Length - 1, useSettingsFile);
+				GetTree(tree, subDirects[i], indent, i == subDirects.Length - 1, useSettingsFile);
 			} catch (Exception) {
 				Console.Write("XX");
 			}
